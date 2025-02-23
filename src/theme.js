@@ -20,7 +20,7 @@ export const tokens = (mode) => ({
           100: "#d0d1d5",
           200: "#a1a4ab",
           300: "#727681",
-          400: "#434957",
+          400: "#1F2A40",
           500: "#141b2d",
           600: "#101624",
           700: "#0c101b",
@@ -141,7 +141,7 @@ export const themeSettings = (mode) => {
               light: colors.grey[100],
             },
             background: {
-              default: colors.grey[500],
+              default: colors.primary[500],
             },
           }
         : {
@@ -203,12 +203,12 @@ export const useMode = () => {
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () => 
-      setMode((prev) => (prev == "light" ? "dark" : "light"))
+      setMode((prev) => (prev === "light" ? "dark" : "light"))
     }),
     []
   );
 
-  const theme = useMemo(() => createTheme(themSettings(mode)), [mode]);
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
   return [theme, colorMode];
 }
